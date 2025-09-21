@@ -85,3 +85,20 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/image-comparison-using-cloud-storage.git
 cd image-comparison-using-cloud-storage
+Install the required Python libraries:
+
+```bash
+pip install torch firebase-admin opencv-python scikit-image Pillow imagehash pandas
+
+
+## 🔑 Firebase Setup
+
+1. Go to your **Firebase project console**.  
+2. Navigate to **Project Settings → Service accounts**.  
+3. Click **Generate new private key** and download the JSON file.  
+4. Rename the file to **`newAccessKey.json`** and place it in the project root.  
+5. Enable **Firestore** and **Cloud Storage** in Firebase.  
+6. Upload your training/comparison images to a **Cloud Storage bucket**.  
+7. Populate **Firestore** with image documents containing:  
+   - **`imgID`** → matches the filename in Cloud Storage  
+   - **`pHash`** → pre-calculated perceptual hash of the image  
